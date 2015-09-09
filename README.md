@@ -23,7 +23,7 @@ Will show `SO:coordinate` if sorted.
 samtools sort -o test_sorted.bam -T tmp test.bam
 ```
 
-### Extract sample name from a BAM file using samtools
+### Extract sample name
 Only consider the first read group
 ```bash
 samtools view -H test.bam | grep @RG | head -1 | sed "s/.*SM:\([^\t]*\).*/\1/"
@@ -35,7 +35,7 @@ For all read groups in a BAM file
 samtools view -H test.bam  | sed "s/SM:[^\t]*/SM:TEST_SAMPLE_NAME/g" | samtools reheader - test.bam > test_SM.bam
 ```
 
-### Do a simple variant calling using freebayes
+### Simple variant calling using freebayes
 ```bash
 freebayes -f ucsc.hg19.fasta --min-alternate-count 5 --no-complex --min-mapping-quality 20 --min-base-quality 20 \
   --min-coverage 20 test.bam | vcffilter -f "QUAL > 20" |  vcfbreakmulti | vt normalize - -q -r ucsc.hg19.fasta > test.vcf 
