@@ -6,11 +6,21 @@
 - Samtools [github page](https://github.com/samtools/samtools)
 - Samtools [webpage](http://www.htslib.org)
 - Samtools [man page](http://www.htslib.org/doc/samtools.html)
+Compilation (from [here](http://samtools.github.io/bcftools/)):
+```bash
+git clone --branch=develop git://github.com/samtools/htslib.git
+git clone --branch=develop git://github.com/samtools/bcftools.git
+git clone --branch=develop git://github.com/samtools/samtools.git
+cd bcftools; make
+cd ../samtools; make
+cd ../htslib; make
+```
 
 ### Other tools
 - [biobambam2](https://github.com/gt1/biobambam2) github
 - [Picard](http://broadinstitute.github.io/picard/) with its [github page](https://github.com/broadinstitute/picard)
 - R package [rbamtools](https://cran.r-project.org/web/packages/rbamtools/index.html) 
+- bedtools [documentation](http://bedtools.readthedocs.org) and [github page](https://github.com/arq5x/bedtools2)
 
 ## Tip and tricks
 ### Check if BAM file is sorted
