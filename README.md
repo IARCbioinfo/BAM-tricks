@@ -2,10 +2,10 @@
 
 ## Usefull tools
 ### Samtools organisation and repositories
-- File format specification: http://samtools.github.io/hts-specs/
-- Samtools github page https://github.com/samtools/samtools
-- Samtools webpage http://www.htslib.org
-- Samtools man page: http://www.htslib.org/doc/samtools.html
+- File format [specification](http://samtools.github.io/hts-specs/)
+- Samtools [github page](https://github.com/samtools/samtools)
+- Samtools [webpage](http://www.htslib.org)
+- Samtools [man page](http://www.htslib.org/doc/samtools.html)
 
 ### Other tools
 - [biobambam2](https://github.com/gt1/biobambam2) github
