@@ -13,11 +13,11 @@
 - R package [rbamtools](https://cran.r-project.org/web/packages/rbamtools/index.html) 
 
 ## Tip and tricks
-### Check if BAM file is sorted (`SO:coordinate`)
+### Check if BAM file is sorted
 ```bash
 samtools view -H test.bam | grep @HD
 ```
-
+Will show `SO:coordinate` if sorted.
 ### Sort a BAM file
 ```bash
 samtools sort -o test_sorted.bam -T tmp test.bam
@@ -35,5 +35,6 @@ samtools view -H test.bam  | sed "s/SM:[^\t]*/SM:TEST_SAMPLE_NAME/g" | samtools 
 
 ### Do a simple variant calling using freebayes
 ```bash
-freebayes -f ucsc.hg19.fasta --min-alternate-count 5 --no-complex --min-mapping-quality 20 --min-base-quality 20 --min-coverage 20 test.bam | vcffilter -f "QUAL > 20" |  vcfbreakmulti | vt normalize - -q -r ucsc.hg19.fasta > test.vcf 
+freebayes -f ucsc.hg19.fasta --min-alternate-count 5 --no-complex --min-mapping-quality 20 --min-base-quality 20 \
+  --min-coverage 20 test.bam | vcffilter -f "QUAL > 20" |  vcfbreakmulti | vt normalize - -q -r ucsc.hg19.fasta > test.vcf 
 ```
