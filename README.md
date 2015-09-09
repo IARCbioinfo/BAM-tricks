@@ -23,12 +23,14 @@ Will show `SO:coordinate` if sorted.
 samtools sort -o test_sorted.bam -T tmp test.bam
 ```
 
-### Extract sample name from a BAM file using samtools (only consider the first read group)
+### Extract sample name from a BAM file using samtools
+Only consider the first read group
 ```bash
 samtools view -H test.bam | grep @RG | head -1 | sed "s/.*SM:\([^\t]*\).*/\1/"
 ```
 
-### Change sample name for all read groups in a BAM file
+### Change sample name 
+For all read groups in a BAM file
 ```bash
 samtools view -H test.bam  | sed "s/SM:[^\t]*/SM:TEST_SAMPLE_NAME/g" | samtools reheader - test.bam > test_SM.bam
 ```
