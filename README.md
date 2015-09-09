@@ -6,6 +6,7 @@
 - Samtools [github page](https://github.com/samtools/samtools)
 - Samtools [webpage](http://www.htslib.org)
 - Samtools [man page](http://www.htslib.org/doc/samtools.html)
+
 Compilation (from [here](http://samtools.github.io/bcftools/)):
 ```bash
 git clone --branch=develop git://github.com/samtools/htslib.git
