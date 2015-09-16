@@ -51,3 +51,11 @@ samtools view -H test.bam  | sed "s/SM:[^\t]*/SM:TEST_SAMPLE_NAME/g" | samtools 
 freebayes -f ucsc.hg19.fasta --min-alternate-count 5 --no-complex --min-mapping-quality 20 --min-base-quality 20 \
   --min-coverage 20 test.bam | vcffilter -f "QUAL > 20" |  vcfbreakmulti | vt normalize - -q -r ucsc.hg19.fasta > test.vcf 
 ```
+
+### Add a new ID-specified read group in the bam header 
+```bash
+RGline=$(samtools view -H test.bam | grep '@RG' | head -1 | sed "s/ID:[^\t]*/ID:NEW_ID/g")w
+line_number=$(samtools view -H test.bam | sed -n '/@RG/=' - | head -1)
+samtools view -H test.bam | sed "${line_number}"'i\'"${RGline}" | samtools reheader - test.bam > test_RGadded.bam
+unset RGline; unset line_number
+```
