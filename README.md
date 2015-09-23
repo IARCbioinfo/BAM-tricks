@@ -59,3 +59,8 @@ line_number=$(samtools view -H test.bam | sed -n '/@RG/=' - | head -1)
 samtools view -H test.bam | sed "${line_number}"'i\'"${RGline}" | samtools reheader - test.bam > test_RGadded.bam
 unset RGline; unset line_number
 ```
+
+### Calculate coverage for each position of a bed
+```bash
+bedtools coverage -d  -a my_bed.bed -b my_bam.bam
+```
