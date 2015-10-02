@@ -1,4 +1,4 @@
-# Tip and tricks for BAM files - Summary
+# Tip and tricks for BAM files
 - [Usefull tools](https://github.com/IARC-bioinfo/BAM-tricks#usefull-tools)
  - [Samtools organisation and repositories](https://github.com/IARC-bioinfo/BAM-tricks#samtools-organisation-and-repositories) 
  - [Other tools](https://github.com/IARC-bioinfo/BAM-tricks#other-tools)
