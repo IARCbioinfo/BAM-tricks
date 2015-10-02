@@ -1,6 +1,15 @@
 # Tip and tricks for BAM files - Summary
 - [Usefull tools](https://github.com/IARC-bioinfo/BAM-tricks#usefull-tools)
+ - [Samtools organisation and repositories](https://github.com/IARC-bioinfo/BAM-tricks#samtools-organisation-and-repositories) 
+ - [Other tools](https://github.com/IARC-bioinfo/BAM-tricks#other-tools)
 - [Tip and tricks](https://github.com/IARC-bioinfo/BAM-tricks#tip-and-tricks)
+ - [Check if BAM is sorted](https://github.com/IARC-bioinfo/BAM-tricks#check-if-bam-file-is-sorted) 
+ - [Sort a BAM](https://github.com/IARC-bioinfo/BAM-tricks#sort-a-bam-file)
+ - [Extract sample name](https://github.com/IARC-bioinfo/BAM-tricks#extract-sample-name)
+ - [Change sample name](https://github.com/IARC-bioinfo/BAM-tricks#change-sample-name)
+ - [Simple variant calling with freebayes](https://github.com/IARC-bioinfo/BAM-tricks#simple-variant-calling-using-freebayes)
+ - [Add new read group in header](https://github.com/IARC-bioinfo/BAM-tricks#add-a-new-id-specified-read-group-in-the-bam-header)
+ - [Calculate bed-positions coverage](https://github.com/IARC-bioinfo/BAM-tricks#calculate-coverage-for-each-position-of-a-bed)
 
 
 ## Usefull tools
