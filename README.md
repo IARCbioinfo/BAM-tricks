@@ -74,5 +74,30 @@ unset RGline; unset line_number
 
 ### Calculate coverage for each position of a bed
 ```bash
-bedtools coverage -d  -a my_bed.bed -b my_bam.bam
+bedtools coverage -d -a my_bed.bed -b my_bam.bam
 ```
+
+### Find where reads map in a BAM file
+
+This will only report non-zero coverage and create contiguous regions with similar coverage (see [`bedtools` manual](http://bedtools.readthedocs.org/en/latest/content/tools/genomecov.html)). Here for example we only keep regions with at least 10 reads:
+```bash
+$ bedtools genomecov -bg -ibam test.bam | awk '$4>=10'
+chr1	154566162	154566163	14
+chr1	154566163	154566164	15
+chr1	154566164	154566167	18
+chr1	154566167	154566171	19
+```
+
+It can also be useful to group these regions and to report the total number of reads in each region. The first step is to merge contiguous regions identified by the previous command with [`bedtools merge`](http://bedtools.readthedocs.org/en/latest/content/tools/merge.html). Here we also merge regions less than 100bp from each other:
+```bash
+$ bedtools genomecov -bg -ibam test.bam | awk '$4>=10' | bedtools merge -d 100 -i stdin
+chr1	154566162	154566294
+chr2	45189642	45189787
+```
+
+Finally we can now ask `bedtools` to count the number of reads in each of these regions using [`coverage`](http://bedtools.readthedocs.org/en/latest/content/tools/coverage.html), and the full command is:
+```bash
+$ bedtools genomecov -bg -ibam test.bam | awk '$4>=10' | bedtools merge -d 100 -i stdin | bedtools coverage -a stdin -b test.bam
+chr1	154566162	154566294	21	132	132	1.0000000
+```
+Here for example there are 21 reads in region chr1:154566162-154566294. These 21 reads cover 132bp and the region itself is 132bp long, so 100% of the region is covered.
