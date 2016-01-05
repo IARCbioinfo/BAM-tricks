@@ -106,7 +106,8 @@ Here for example there are 21 reads in region chr1:154566162-154566294. These 21
 
 Usefull links explaining why it's not so simple (for paired-end sequencing at least):
 http://crazyhottommy.blogspot.fr/2015/10/convert-bam-to-fastq-and-remap-it-with.html
-Warning when reading old texts: `htscmd bamshuf` has been successively renamed `samtools bamshuf` and now `samtools collate` (since `samtools v1.3`). Similarly `htscmd bam2fq` has been successively renamed `samtools bam2fq` and now simply `samtools fastq`.
+
+Warning when reading old texts about this: `htscmd bamshuf` has been successively renamed `samtools bamshuf` and now `samtools collate` (since `samtools v1.3`). Similarly `htscmd bam2fq` has been successively renamed `samtools bam2fq` and now simply `samtools fastq`.
 
 This commands allows to do it without intermediate files, including the final zip:
 ```bash
