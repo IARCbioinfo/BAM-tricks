@@ -48,7 +48,11 @@ samtools sort -o test_sorted.bam -T tmp test.bam
 
 ### Extract sample name
 ```bash
-samtools view -H S556_DA_B00FE7Q_HWCV5CCXX_hs37d5_MERGE_PE_2-3.reliable.realign.bam | grep '^@RG' | sed "s/.*SM:\([^\t]*\).*/\1/g" | uniq
+samtools view -H test.bam | grep '^@RG' | sed "s/.*SM:\([^\t]*\).*/\1/g" | uniq
+```
+To have the sample names of all BAM files in a folder with their file names:
+```bash
+for f in *.bam; do echo -ne "$f\t" ; samtools view -H $f | grep '^@RG' | sed "s/.*SM:\([^\t]*\).*/\1/g" | uniq; done
 ```
 
 ### Change sample name 
