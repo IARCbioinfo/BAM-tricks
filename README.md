@@ -47,9 +47,8 @@ samtools sort -o test_sorted.bam -T tmp test.bam
 ```
 
 ### Extract sample name
-Only consider the first read group
 ```bash
-samtools view -H test.bam | grep @RG | head -1 | sed "s/.*SM:\([^\t]*\).*/\1/"
+samtools view -H S556_DA_B00FE7Q_HWCV5CCXX_hs37d5_MERGE_PE_2-3.reliable.realign.bam | grep '^@RG' | sed "s/.*SM:\([^\t]*\).*/\1/g" | uniq
 ```
 
 ### Change sample name 
