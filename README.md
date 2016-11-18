@@ -5,6 +5,7 @@
 - [Tip and tricks](https://github.com/IARC-bioinfo/BAM-tricks#tip-and-tricks)
  - [Check if BAM is sorted](https://github.com/IARC-bioinfo/BAM-tricks#check-if-bam-file-is-sorted) 
  - [Sort a BAM](https://github.com/IARC-bioinfo/BAM-tricks#sort-a-bam-file)
+ - [Extract run ID, flow cell ID and Lane number](https://github.com/IARC-bioinfo/BAM-tricks#sort-a-bam-file)
  - [Extract sample name](https://github.com/IARC-bioinfo/BAM-tricks#extract-sample-name)
  - [Change sample name](https://github.com/IARC-bioinfo/BAM-tricks#change-sample-name)
  - [Simple variant calling with freebayes](https://github.com/IARC-bioinfo/BAM-tricks#simple-variant-calling-using-freebayes)
@@ -44,6 +45,12 @@ Will show `SO:coordinate` if sorted.
 ### Sort a BAM file
 ```bash
 samtools sort -o test_sorted.bam -T tmp test.bam
+```
+
+### Extract run ID, flow cell ID and Lane number
+This only works for recent Illumina BAM files but can easily be adapted for other types and for FASTQ files. We extract the first column from the first read of the BAM that looks like `HISEQ:292:C5GGUACXX:6:1101:16516:24562` and take fields 2, 3 and 4 separated by `:`: 
+```bash
+samtools view test.bam | head -1 | cut -f1 | cut -f2-4 -d':' | tr ':' '\t'
 ```
 
 ### Extract sample name
