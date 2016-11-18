@@ -5,7 +5,7 @@
 - [Tip and tricks](https://github.com/IARC-bioinfo/BAM-tricks#tip-and-tricks)
  - [Check if BAM is sorted](https://github.com/IARC-bioinfo/BAM-tricks#check-if-bam-file-is-sorted) 
  - [Sort a BAM](https://github.com/IARC-bioinfo/BAM-tricks#sort-a-bam-file)
- - [Extract run ID, flow cell ID and Lane number](https://github.com/IARC-bioinfo/BAM-tricks#sort-a-bam-file)
+ - [Extract run ID, flow cell ID and Lane number](https://github.com/IARCbioinfo/BAM-tricks/blob/master/README.md#extract-run-id-flow-cell-id-and-lane-number)
  - [Extract sample name](https://github.com/IARC-bioinfo/BAM-tricks#extract-sample-name)
  - [Change sample name](https://github.com/IARC-bioinfo/BAM-tricks#change-sample-name)
  - [Simple variant calling with freebayes](https://github.com/IARC-bioinfo/BAM-tricks#simple-variant-calling-using-freebayes)
