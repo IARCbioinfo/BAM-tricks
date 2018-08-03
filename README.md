@@ -82,10 +82,33 @@ samtools view -H test.bam | sed "${line_number}"'i\'"${RGline}" | samtools rehea
 unset RGline; unset line_number
 ```
 
-### Calculate coverage for each position of a bed
+### Calculate coverage 
+### For each position in a bed file
 ```bash
 bedtools coverage -d -a my_bed.bed -b my_bam.bam
 ```
+### For a particular position with samtools mpileup
+ * create the following script (`bam2table.sh`):
+ ```
+ #!/bin/sh
+
+if [ $# -ne 2 ]
+then
+	echo "Usage ./bam2table.sh region bam"
+	echo " with region something like chr5:127729073-127729073"
+	echo " reference is hg19" 
+	exit
+fi
+
+samtools mpileup -f genome.fasta -r $1 $2 > tmp.pileup 2> /dev/null
+pileup2baseindel.pl -i tmp.pileup &> /dev/null
+cat sample1.txt
+rm tmp.pileup sample1.txt
+ ```
+ * run for example:
+ ```
+ bam2table.sh chr17:7573896-7573896 file.bam | sed -n 2p | cut -f4-11 | awk '{sum=0; for (i=1; i<=NF; i++) { sum+= $i } print sum}'
+ ```
 
 ### Find where reads map in a BAM file
 
