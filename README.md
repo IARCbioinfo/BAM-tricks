@@ -10,7 +10,7 @@
  - [Change sample name](https://github.com/IARC-bioinfo/BAM-tricks#change-sample-name)
  - [Simple variant calling with freebayes](https://github.com/IARC-bioinfo/BAM-tricks#simple-variant-calling-using-freebayes)
  - [Add new read group in header](https://github.com/IARC-bioinfo/BAM-tricks#add-a-new-id-specified-read-group-in-the-bam-header)
- - [Calculate bed-positions coverage](https://github.com/IARC-bioinfo/BAM-tricks#calculate-coverage-for-each-position-of-a-bed)
+ - [Calculate coverage](https://github.com/IARC-bioinfo/BAM-tricks#calculate-coverage)
 
 
 ## Usefull tools
