@@ -101,7 +101,7 @@ then
 fi
 
 samtools mpileup -f genome.fasta -r $1 $2 > tmp.pileup 2> /dev/null
-pileup2baseindel.pl -i tmp.pileup &> /dev/null
+pileup2baseindel.pl -i tmp.pileup &> /dev/null # perl script can be found here: https://github.com/IARCbioinfo/needlestack/releases/tag/v0.3
 cat sample1.txt
 rm tmp.pileup sample1.txt
  ```
